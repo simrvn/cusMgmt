@@ -13,8 +13,9 @@ document.getElementById("add-button").addEventListener("click", () => {
 });
 
 document.querySelector("table").addEventListener("click", (e) => {
-  if (e.target.classList.contains("delete")) {
-    const target = e.target;
+  const target = e.target;
+  
+  if (target.classList.contains("delete")) {
     const lastName = target.parentElement.previousElementSibling.innerText;
     const firstName =
       target.parentElement.previousElementSibling.previousElementSibling
@@ -22,9 +23,10 @@ document.querySelector("table").addEventListener("click", (e) => {
 
     deleteCustomer(firstName, lastName);
 
-    e.target.parentElement.parentElement.remove();
+    target.parentElement.parentElement.remove();
   }
 });
+
 
 document.getElementById("search-button").addEventListener("click", () => {
   const input = document.getElementById("search").value;
