@@ -22,13 +22,13 @@
             type="text"
             class="form-control"
             placeholder="First Name"
-            id = "first-name"
+            id="add-first-name"
           />
           <input
             type="text"
             class="form-control"
             placeholder="Last Name"
-            id = "last-name"
+            id="add-last-name"
           />
           <button
             class="btn btn-outline-secondary"
@@ -49,37 +49,27 @@
             placeholder="Search Customer"
             id="search"
           />
-          <button class="btn btn-outline-secondary" type="button" id="search-button">
-            Search
-          </button>
-        </div>
-      </div>
-
-
-
-      <div class="container mt-5">
-        <h5>Delete Customer</h5>
-        <div class="input-group mb-3">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="First Name"
-            id="remove-first-name"
-          />
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Last Name"
-            id="remove-last-name"
-          />
           <button
             class="btn btn-outline-secondary"
             type="button"
-            id="remove-button"
+            id="search-button"
           >
-            Delete Customer
+            Search
           </button>
+        </div>
+        <table class="table">
+          <thead class="table-header" style="display: none;">
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody class="user-table">
+          </tbody>
+        </table>
       </div>
+
     </main>
   </body>
 </html>
