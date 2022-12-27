@@ -8,7 +8,6 @@ const createCustomer = (firstName, lastName) => {
 };
 
 const deleteCustomer = (firstName, lastName) => {
-  const customer = new Customer(firstName, lastName);
 
   if (userStorage.length === 0)
     console.log("There are no users in the database");
