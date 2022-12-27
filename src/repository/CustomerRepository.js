@@ -21,8 +21,14 @@ const deleteCustomer = (firstName, lastName) => {
   }
 };
 
+const searchCustomer = (input) => {
+  return userStorage.filter(
+    (cust) => cust.firstName === input || cust.lastName === input
+  );
+};
+
 const isNameEqual = (obj1, obj2) => {
   return obj1.firstName === obj2.firstName && obj1.lastName === obj2.lastName;
 };
 
-export { createCustomer, deleteCustomer, isNameEqual, userStorage };
+export { createCustomer, deleteCustomer, isNameEqual, userStorage, searchCustomer };
