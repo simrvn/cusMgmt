@@ -1,6 +1,5 @@
 import { Customer } from "../models/Customer.js";
-import {userStorage} from "../utils/userStore.js"
-import {createCustomer, deleteCustomer} from  "./CRUDCustomer.js"
+import {createCustomer, deleteCustomer, userStorage} from  "./CustomerRepository.js"
 
 afterEach(() => {
   userStorage.splice(0, userStorage.length)
