@@ -1,11 +1,11 @@
-import { Customer } from "../models/Customer.js";
+import { Customer } from "../models/Customer";
 import {
   createCustomer,
   deleteCustomer,
   userStorage,
   searchCustomer,
   updateCustomer,
-} from "./CustomerRepository.js";
+} from "./CustomerRepository";
 
 afterEach(() => {
   userStorage.splice(0, userStorage.length);
