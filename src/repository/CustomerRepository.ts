@@ -3,8 +3,8 @@ import { Customer } from "../models/Customer";
 
 let userStorage: Customer[] = [];
 
-const createCustomer = (firstName: string, lastName: string) => {
-  const customer = new Customer(firstName, lastName);
+const createCustomer = (id: number, firstName: string, lastName: string) => {
+  const customer = new Customer(id, firstName, lastName);
   userStorage.push(customer);
 };
 

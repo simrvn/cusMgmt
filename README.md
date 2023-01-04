@@ -1,1 +1,1 @@
-Use `live-server` to run app
+`npm start` to run app
