@@ -17,7 +17,6 @@
       crossorigin="anonymous"
     ></script>
   </head>
-
   <body>
     <main>
       <div class="container mt-5">
@@ -97,17 +96,15 @@
       </div>
 
       <div class="container mt-5">
-        <form action="/search" method="get">
-          <h5>Search Customer</h5>
-          <div class="input-group mb-3">
-            <input
-              class="form-control"
-              type="search"
-              placeholder="Search Customer"
-              id="search"
-              name="custName"
-              required
-            />
+        <form action="/search" method="get" >
+        <h5>Search Customer</h5>
+        <div class="input-group mb-3">
+          <input
+            class="form-control"
+            type="search"
+            placeholder="Search Customer"
+            id="search"
+          />
             <button
               class="btn btn-outline-secondary"
               type="submit"
@@ -115,8 +112,39 @@
             >
               Search
             </button>
-          </div>
+        </div>
         </form>
+
+        <table class="table">
+          <thead class="table-header">
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody class="table-body">
+            <% custList.forEach((cust) => { %>
+            <tr>
+              <td><%= cust.firstName %></td>
+              <td><%= cust.lastName %></td>
+              <td>
+                <button
+                  class="btn edit"
+                  data-action="edit"
+                  data-bs-toggle="modal"
+                  data-bs-target="#add-form"
+                >
+                  Edit
+                </button>
+              <!-- <a data-id= <%= cust.id%> > -->
+                <button class="btn delete" data-action="delete" data-id= <%= cust.id%>>Remove</button>
+                <!-- </a> -->
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
       </div>
     </main>
   </body>

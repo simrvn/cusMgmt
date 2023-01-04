@@ -1,40 +1,46 @@
 import { Customer } from "../models/Customer";
-
-
+import { Customers } from "../models/CustomerSchema";
 let userStorage: Customer[] = [];
 
 const createCustomer = (id: number, firstName: string, lastName: string) => {
-  const customer = new Customer(id, firstName, lastName);
-  userStorage.push(customer);
+
+    const customer = new Customer(id, firstName, lastName);
+    userStorage.push(customer);
+
+  
 };
 
-const deleteCustomer = (firstName: string, lastName: string) => {
+const searchCustomer = (customerName: string) => {
+
+    return userStorage.filter(
+      (cust) => cust.firstName === customerName || cust.lastName === customerName
+    );
+
+};
+
+const searchCustomerByID = (id: number) => {
+  return userStorage.find((cust) => cust.id === id);
+}
+
+const deleteCustomer = (id: number) => {
   if (userStorage.length === 0)
     console.log("There are no users in the database");
 
-  const index = findCustomerIndex(firstName, lastName);
-
-  userStorage.splice(index, 1);
+  userStorage.splice(getIndex(id), 1);
 };
 
-const searchCustomer = (input: string) => {
-  return userStorage.filter(
-    (cust) => cust.firstName === input || cust.lastName === input
-  );
+const updateCustomer = (id: number, newFirstName: string, newLastName: string) => {
+  userStorage[getIndex(id)].firstName = newFirstName;
+  userStorage[getIndex(id)].lastName = newLastName;
 };
 
-const updateCustomer = (ogFirstName: string, ogLastName: string, newFirstName: string, newLastName: string) => {
-  const index = findCustomerIndex(ogFirstName, ogLastName);
+const getIndex = (id: number) => {return id-1;};
 
-  userStorage[index].firstName = newFirstName;
-  userStorage[index].lastName = newLastName;
-};
 
-const findCustomerIndex = (firstName: string, lastName: string) => {
-  return userStorage.findIndex(
-    (cust) => cust.firstName === firstName && cust.lastName === lastName
-  );
-};
+// const searchCustomerDB = (name: string) => {
+//   const customers = Customers.find({firstName: name});
+//   return customers;
+// }
 
 export {
   createCustomer,
@@ -42,4 +48,9 @@ export {
   userStorage,
   searchCustomer,
   updateCustomer,
+  searchCustomerByID,
 };
+
+
+
+

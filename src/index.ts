@@ -1,9 +1,10 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
 import path from 'path';
-import bodyParser from 'body-parser';
 import {router} from './routes/routes'
 import { createCustomer } from './repository/CustomerRepository';
+import { connectDB } from './database/dbconnection';
+import { Customers } from './models/CustomerSchema';
 dotenv.config({path: './configs/config.env'});
 
 
@@ -14,8 +15,7 @@ const PORT = process.env.PORT || 8080;
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-
-createCustomer(1, "Tom", "Hardy");
+connectDB();
 
 app.use(router);
 
