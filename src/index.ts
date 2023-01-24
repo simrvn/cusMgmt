@@ -14,11 +14,11 @@ const PORT = process.env.PORT || 8080;
 
 connectDB();
 
-app.get("/", (req: Request, res: Response) => {
+app.get('/', (req: Request, res: Response) => {
   res.send('Hello World');
 });
 
-app.use(router);
+app.use('/customers', router);
 
 app.listen(PORT, ()=> {console.log(`App running on http://localhost:${PORT}`);});
 
