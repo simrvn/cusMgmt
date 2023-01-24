@@ -1,14 +1,11 @@
-import express, { Express, Request, Response } from 'express';
-import dotenv from 'dotenv';
-import path from 'path';
-import {router} from './routes/routes'
-import { createCustomer } from './repository/CustomerRepository';
+import express, { Express, Request, Response} from 'express';
+import {router} from './routes/customers'
 import { connectDB } from './database/dbconnection';
-import { Customers } from './models/CustomerSchema';
-dotenv.config({path: './configs/config.env'});
+import dotenv from 'dotenv';
 
 
 const app: Express = express();
+dotenv.config();
 const PORT = process.env.PORT || 8080;
 
 
@@ -16,6 +13,10 @@ const PORT = process.env.PORT || 8080;
 // app.set("view engine", "ejs");
 
 connectDB();
+
+app.get("/", (req: Request, res: Response) => {
+  res.send('Hello World');
+});
 
 app.use(router);
 

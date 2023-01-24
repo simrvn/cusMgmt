@@ -2,4 +2,5 @@ coverage
 node_modules
 .DS_Store
 .cache
-configs
+dist
+.env
