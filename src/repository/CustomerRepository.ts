@@ -28,7 +28,7 @@ class ArrayRepository implements IRepository {
   }
 
   getCustomers() {
-      return getUserStorage();
+    return getUserStorage();
   }
 
   getCustomerByID(id: number) {
@@ -64,12 +64,12 @@ class MongoRepository implements IRepository {
     await Customers.deleteOne({ id: id });
   }
 
-  async getCustomers() : Promise<Customer[]>{
+  async getCustomers(): Promise<Customer[]> {
     return await Customers.find();
   }
 
   async getCustomerByID(id: number) {
-      return await Customers.findOne({id: id});
+    return await Customers.findOne({ id: id });
   }
 
   async searchByName(customerName: string): Promise<Customer[]> {
@@ -77,7 +77,7 @@ class MongoRepository implements IRepository {
       $or: [{ firstName: customerName }, { lastName: customerName }],
     });
   }
-  
+
   async update(customer: ICustomer): Promise<void> {
     await Customers.updateOne(
       { id: customer.id },
