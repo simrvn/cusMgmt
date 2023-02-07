@@ -1,9 +1,9 @@
-import { Customer, Customers } from "../../models/Customer";
+import { Customer, Customers } from "../../src/models/Customer";
 import {
   ArrayRepository,
   getUserStorage,
   MongoRepository,
-} from "../CustomerRepository";
+} from "../../src/repository/CustomerRepository";
 import { clearDatabase, closeDatabase, connect } from "./dbconnection";
 
 describe("#given storage array", () => {

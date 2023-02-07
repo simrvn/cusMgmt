@@ -6,14 +6,12 @@ import {
   IRepository,
   MongoRepository,
 } from "../repository/CustomerRepository";
-import { Customer } from "../models/Customer";
+import { persistentMode } from "../constants/persistantMode";
 
 const router = Router();
 
 router.use(bodyParser.json());
-
 let repository: IRepository;
-const persistentMode = false;
 
 if (persistentMode) {
   repository = new ArrayRepository();
